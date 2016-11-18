@@ -1,0 +1,27 @@
+<aura:component >
+    <div class="slds-page-header" role="banner">
+        <div class="slds-grid">
+
+            <div class="slds-col slds-has-flexi-truncate">
+                <h1 class="slds-text-heading--medium slds-truncate" title="All Opportunities">
+                    <c:svg class="slds-icon slds-icon--x-large slds-icon-text-default"
+                               xlinkHref="/resource/SLDS214/assets/icons/standard-sprite/svg/symbols.svg#opportunity"
+                               />
+                    Opportunities</h1>
+            </div>
+
+            <div class="slds-col slds-no-flex slds-align-bottom">
+                <div class="slds-button-group">
+                    <button class="slds-button slds-button--neutral" onclick="{!c.showModalAddOppty}">
+                        <c:svg class="slds-icon slds-icon--x-small slds-icon-text-default"
+                               xlinkHref="/resource/SLDS214/assets/icons/utility-sprite/svg/symbols.svg#add"
+                               />
+                        Add Opportunity</button>
+                </div>
+            </div>
+        </div>
+
+        <p class="slds-text-body--small slds-m-top--x-small">Lastest 10 of them </p>
+
+    </div>
+</aura:component>

@@ -1,0 +1,73 @@
+<aura:component controller="OpportunityListController">
+    <ltng:require styles="/resource/SLDS214/assets/styles/salesforce-lightning-design-system.min.css"/>
+
+    <aura:attribute name="opptyList" type="Opportunity[]"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.getOpportunityList}"/>
+
+
+
+    <table class="slds-table slds-table--bordered"  id="objectTable" >
+
+        <thead>
+            <tr class="slds-text-heading--label">
+                <th class="slds-cell-shrink" scope="col"></th>
+                <th class="slds-cell-shrink" scope="col"></th>
+                <th class="slds-truncate" scope="col">
+                    <span class="slds-truncate">Name</span></th>
+                <th scope="col">
+                    <span class="slds-truncate">Probability %</span></th>
+                <th scope="col">
+                    <span class="slds-truncate">Total Opportunity Quantity</span></th>
+
+                <th scope="col">
+                    <span class="slds-truncate">Stage </span></th>
+
+                <th scope="col">
+                    <span class="slds-truncate">Close Date</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.opptyList}" var="oppty">
+                <tr class="slds-hint-parent">
+
+                    <td data-label="acc-name" role="row">
+                        <c:svg class="slds-icon slds-icon-text-default"
+                               xlinkHref="/resource/SLDS214/assets/icons/standard-sprite/svg/symbols.svg#opportunity"
+                               />
+                    </td>
+
+                    <td data-label="acc-name" role="row">
+
+                         <button id="{!oppty.Id}"  class="slds-button slds-button--neutral"
+                                 onclick="{!c.deleteOpportunity}">
+                        <c:svg class="slds-icon slds-icon--x-small slds-icon-text-default"
+                               xlinkHref="/resource/SLDS214/assets/icons/action-sprite/svg/symbols.svg#delete"
+                               />
+                              {!oppty.Id} </button>
+                    </td>
+
+
+                    <td data-label="Opportunity Name" role="row">
+                        <a href="#" class="slds-truncate">{!oppty.Name}</a></td>
+                    <td data-label="Probability">
+                        <a href="#" class="slds-truncate">{!oppty.Probability}%</a></td>
+                    <td data-label="Total Opportunity Quantity">
+                        <a href="#" class="slds-truncate">{!oppty.TotalOpportunityQuantity}</a></td>
+
+                   <td data-label="Stage">
+                        <a href="#" class="slds-truncate">
+                                 <c:svg class="slds-icon slds-icon--x-small slds-icon-text-default"
+                               xlinkHref="/resource/SLDS214/assets/icons/action-sprite/svg/symbols.svg#flow"
+                               /> &nbsp;
+                            {!oppty.StageName}</a></td>
+                   <td data-label="Close Date">
+                        <a href="#" class="slds-truncate">
+                            <c:svg class="slds-icon slds-icon--x-small slds-icon-text-default"
+                               xlinkHref="/resource/SLDS214/assets/icons/action-sprite/svg/symbols.svg#new_event"
+                               />&nbsp;
+                            {!oppty.CloseDate}</a></td>
+                </tr>
+            </aura:iteration></tbody>
+    </table>
+</aura:component>

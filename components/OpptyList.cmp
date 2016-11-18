@@ -5,8 +5,6 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.getOpportunityList}"/>
 
-
-
     <table class="slds-table slds-table--bordered"  id="objectTable" >
 
         <thead>
